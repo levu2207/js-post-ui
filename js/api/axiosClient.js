@@ -10,8 +10,6 @@ const axiosClient = axios.create({
 // Add a request interceptor
 axiosClient.interceptors.request.use(
   function (config) {
-    console.log('request interceptor', config);
-
     //Attach token to request if exits
     const accessToken = localStorage.getItem('access_token');
     if (accessToken) {
