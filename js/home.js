@@ -22,7 +22,7 @@ function createPostElement(post) {
   // if (titleElement) titleElement.textContent = post.title;
 
   setTextContent(liElement, '[data-id="title"]', post.title);
-  setTextContent(liElement, '[data-id="description"]', truncateText(post.description, 100));
+  setTextContent(liElement, '[data-id="description"]', truncateText(post.description, 110));
   setTextContent(liElement, '[data-id="author"]', post.author);
 
   // const descriptionElement = liElement.querySelector('[data-id="description"]');
