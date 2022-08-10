@@ -30,6 +30,8 @@
     <!-- Internal CSS -->
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/post-detail.css" />
+    <link rel="stylesheet" href="css/add-edit-post.css" />
   </head>
 
   <body>
@@ -77,7 +79,7 @@
         <div class="container">
           <ul class="nav justify-content-between align-items-center">
             <li class="nav-item">
-              <a class="nav__link" href="">
+              <a class="nav__link" href="./index.html">
                 <img class="nav__logo" src="images/logo.svg" alt="Logo Nordic Coder" />
               </a>
             </li>
@@ -187,6 +189,18 @@
       <section class="posts-section">
         <div class="container">
           <h1 class="with-underline text-center">Latest posts</h1>
+          <!-- Search box -->
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="search">Search</span>
+            <input
+              type="text"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search by post title"
+              aria-label="search"
+              aria-describedby="search"
+            />
+          </div>
 
           <!-- Posts list -->
           <ul id="postsList" class="row posts-list justify-content-center"></ul>
