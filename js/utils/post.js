@@ -16,20 +16,10 @@ export function createPostElement(post) {
 
   if (!liElement) return;
 
-  // update title, description, author, thumnail
-  // const titleElement = liElement.querySelector('[data-id="title"]');
-  // if (titleElement) titleElement.textContent = post.title;
-
   setTextContent(liElement, '[data-id="title"]', post.title);
   setTextContent(liElement, '[data-id="description"]', truncateText(post.description, 110));
   setTextContent(liElement, '[data-id="author"]', post.author);
 
-  // const descriptionElement = liElement.querySelector('[data-id="description"]');
-  // if (descriptionElement) descriptionElement.textContent = post.description;
-
-  // const authorElement = liElement.querySelector('[data-id="author"]');
-  // if (authorElement) authorElement.textContent = post.author;
-  // calculate timespan
   const timeSpan = dayjs(post.updatedAt).fromNow();
   setTextContent(liElement, '[data-id="timeSpan"]', `- ${timeSpan}`);
 
@@ -43,6 +33,11 @@ export function createPostElement(post) {
   }
 
   // attach events
+  // go to post detail when click on div.post-item
+  const divElement = liElement.firstElementChild;
+  divElement.addEventListener('click', () => {
+    window.location.assign(`/post-detail.html?id=${post.id}`);
+  });
   return liElement;
 }
 

@@ -5,7 +5,7 @@ const postApi = {
     const url = '/posts';
     return axiosClient.get(url, { params });
   },
-  getById() {
+  getById(id) {
     const url = `posts/${id}`;
     return axiosClient.get(url);
   },
