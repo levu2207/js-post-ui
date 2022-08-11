@@ -9,3 +9,17 @@ export function truncateText(text, maxLength) {
 
   return `${text.slice(0, maxLength - 1)}…`;
 }
+
+export function setFieldValue(form, selector, value) {
+  if (!form) return;
+
+  const field = form.querySelector(selector);
+  if (field) return (field.value = value);
+}
+
+export function setBackgroundImage(parent, selector, imageUrl) {
+  if (!parent) return;
+
+  const image = parent.querySelector(selector);
+  if (image) image.style.backgroundImage = `url("${imageUrl}")`;
+}

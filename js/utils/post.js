@@ -35,9 +35,25 @@ export function createPostElement(post) {
   // attach events
   // go to post detail when click on div.post-item
   const divElement = liElement.firstElementChild;
-  divElement.addEventListener('click', () => {
+  divElement.addEventListener('click', (event) => {
+    // S2: if event is triggered from menu add/edit --> ignore
+    const menu = liElement.querySelector('[data-id="menu"]');
+
+    if (menu && menu.contains(event.target)) return;
+
     window.location.assign(`/post-detail.html?id=${post.id}`);
   });
+
+  // add click event for edit button
+  const editButton = liElement.querySelector('[data-id="edit"]');
+  if (editButton) {
+    editButton.addEventListener('click', () => {
+      // S1: e.stopPropagation(); // not recommend if web have tracking script
+
+      window.location.assign(`/add-edit-post.html?id=${post.id}`);
+    });
+  }
+
   return liElement;
 }
 
