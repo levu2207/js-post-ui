@@ -32,7 +32,7 @@ function renderPostDetail(post) {
   // render edit page link
   const editPageLink = document.getElementById('goToEditPageLink');
   if (editPageLink) {
-    editPageLink.href = `/add-edit-post.html?id=${post.Id}`;
+    editPageLink.href = `/add-edit-post.html?id=${post.id}`;
     editPageLink.textContent = 'Edit Post';
   }
 }
@@ -45,12 +45,6 @@ function renderPostDetail(post) {
     nextSelector: 'button[data-id="lightboxNext"]',
   });
 
-  registerLightbox({
-    modalId: 'lightbox',
-    imgSelector: 'img[data-id="lightboxImg"]',
-    prevSelector: 'button[data-id="lightboxPrev"]',
-    nextSelector: 'button[data-id="lightboxNext"]',
-  });
   // get post id from url
   // fetch post detail API object
   // render post detail
